@@ -31,7 +31,7 @@ def prm_planning(sx, sy, gx, gy, ox, oy, rr):
 
     sample_x, sample_y = sample_points(sx, sy, gx, gy, rr, ox, oy, obstacle_kd_tree)
     if show_animation:
-        plt.plot(sample_x, sample_y, ".b")
+        plt.plot(sample_x, sample_y, ".y")
 
     road_map = generate_road_map(sample_x, sample_y, rr, obstacle_kd_tree)
 
@@ -220,38 +220,38 @@ if __name__ == "__main__":
     sy = 10.0
     gx = 50.0
     gy = 50.0
-    robot_size = 5.0
+    grid_size = 2.0
+    robot_radius = 1.0
 
-    ox = []
-    oy = []
-
-    for i in range(60):
+    # set obstacle positions
+    ox, oy = [], []
+    for i in range(0, 60):
         ox.append(i)
         oy.append(0.0)
-    for i in range(60):
+    for i in range(0, 60):
         ox.append(60.0)
         oy.append(i)
-    for i in range(61):
+    for i in range(0, 61):
         ox.append(i)
         oy.append(60.0)
-    for i in range(61):
+    for i in range(0, 61):
         ox.append(0.0)
         oy.append(i)
-    for i in range(40):
+    for i in range(0, 40):
         ox.append(20.0)
         oy.append(i)
-    for i in range(40):
+    for i in range(0, 40):
         ox.append(40.0)
         oy.append(60.0 - i)
 
     if show_animation:
         plt.plot(ox, oy, ".k")
-        plt.plot(sx, sy, "og")
-        plt.plot(gx, gy, "or")
+        plt.plot(sx, sy, "or")
+        plt.plot(gx, gy, "ob")
         plt.grid(True)
         plt.axis("equal")
 
-    rx, ry = prm_planning(sx, sy, gx, gy, ox, oy, robot_size)
+    rx, ry = prm_planning(sx, sy, gx, gy, ox, oy, robot_radius)
 
     assert rx, 'Cannot found path'
 
