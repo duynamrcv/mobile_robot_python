@@ -20,3 +20,9 @@ pip install -r requirements.txt
 
 #### Probabilistic Road Map
 ![PRM](results/path_planning/prm.png)
+
+### Path Tracking
+#### The bicycle model
+The robot kinematic model was used in this package is Car-like robot model.
+#### Move to Pose
+![Move to Pose](results/path_tracking/move2pose.png)
