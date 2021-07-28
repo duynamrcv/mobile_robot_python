@@ -32,6 +32,8 @@ pip install -r requirements.txt
 ### Path Tracking
 #### The bicycle model
 The robot kinematic model was used in this package is Car-like robot model.
+#### LQR Steering
+![LQR Steering](results/path_tracking/lqr_steering.png)
 #### Move to Pose
 ![Move to Pose](results/path_tracking/move2pose.png)
 #### Rear Wheel Feedback

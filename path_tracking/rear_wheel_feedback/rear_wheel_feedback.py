@@ -110,6 +110,20 @@ def rear_wheel_feedback_control(state, e, k, yaw_ref):
 
     return delta
 
+def calc_target_speed(state, yaw_ref):
+    target_speed = 10.0/3.6
+
+    dyaw = yaw_ref - state.yaw
+    switch = math.pi/4.0 <= dyaw < math.pi/2.0
+
+    if switch:
+        state.direction *= -1
+        return 0.0
+    
+    if state.direction != 1:
+        return -target_speed
+
+    return target_speed
 
 def simulate(path_ref, goal):
     T = 500.0  # max simulation time
@@ -166,21 +180,6 @@ def simulate(path_ref, goal):
             plt.pause(0.001)
 
     return t, x, y, yaw, v, goal_flag
-
-def calc_target_speed(state, yaw_ref):
-    target_speed = 10.0/3.6
-
-    dyaw = yaw_ref - state.yaw
-    switch = math.pi/4.0 <= dyaw < math.pi/2.0
-
-    if switch:
-        state.direction *= -1
-        return 0.0
-    
-    if state.direction != 1:
-        return -target_speed
-
-    return target_speed
 
 if __name__ == "__main__":
     print("rear wheel feedback tracking start!!")
