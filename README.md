@@ -9,6 +9,11 @@ pip install -r requirements.txt
     * A Star
     * Dijkstra
     * Probabilistic Road Map
+    * Cubic Spline (path generator from point)
+2. [Path Tracking](path_tracking)
+    * Move to Pose
+    * Rear Wheel Feedback
+    * Stanley Control
 
 ## Results
 ### Path Planning
@@ -29,5 +34,7 @@ pip install -r requirements.txt
 The robot kinematic model was used in this package is Car-like robot model.
 #### Move to Pose
 ![Move to Pose](results/path_tracking/move2pose.png)
+#### Rear Wheel Feedback
+![Rear wheel](results/path_tracking/rear_wheel.png)
 #### Stanley Control
 ![Stanley Control](results/path_tracking/stanley.png)
