@@ -34,6 +34,8 @@ pip install -r requirements.txt
 The robot kinematic model was used in this package is Car-like robot model.
 #### LQR Steering
 ![LQR Steering](results/path_tracking/lqr_steering.png)
+#### LQR Speed Steering
+![LQR Speed Steering](results/path_tracking/lqr_speed_steer.png)
 #### Move to Pose
 ![Move to Pose](results/path_tracking/move2pose.png)
 #### Rear Wheel Feedback
