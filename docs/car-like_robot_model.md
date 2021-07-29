@@ -8,6 +8,7 @@ $$\dot{\theta} = \frac{v}{L}\tan{\gamma}$$
 where: <br>
 $L$ - the length of the vehicle;<br>
 $\gamma$ -  the steering angle; <br>
+$v$ - the velocity;<br>
 
 ![Car-like Robot](images/car-like_robot.png)
 
@@ -34,4 +35,4 @@ $$ \theta = \theta - 2\pi\left\lfloor\frac{\theta + \pi}{2\pi}\right\rfloor $$
 ## Constraints
 In actual, the car-like mobile robot can not be too large velocity and too large steering angle. So, we alway have the constraints:
 $$ \left|v\right| \leq v_\text{max} $$
-$$ \gamma 
+$$ \left|\gamma \right| \leq \gamma_\text{max} < \frac{\pi}{2}$$

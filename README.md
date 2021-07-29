@@ -30,8 +30,8 @@ pip install -r requirements.txt
 ![Cubic Spline](results/path_planning/spline.png)
 
 ### Path Tracking
-#### The bicycle model
-The robot kinematic model was used in this package is Car-like robot model.
+#### The Car-like Mobile Robot model
+The robot kinematic model was used in this package is Car-like robot model. For more information, please consider the [Car-like Mobile Robot](docs/car-like_robot_model.md)
 #### LQR Steering
 ![LQR Steering](results/path_tracking/lqr_steering.png)
 #### LQR Speed Steering
