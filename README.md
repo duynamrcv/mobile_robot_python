@@ -38,6 +38,8 @@ The robot kinematic model was used in this package is Car-like robot model. For 
 ![LQR Speed Steering](results/path_tracking/lqr_speed_steer.png)
 #### Move to Pose
 ![Move to Pose](results/path_tracking/move2pose.png)
+#### Pure Pursuit
+![Pure Pursuit](results/path_tracking/pure_pursuit.png)
 #### Rear Wheel Feedback
 ![Rear wheel](results/path_tracking/rear_wheel.png)
 #### Stanley Control
