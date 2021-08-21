@@ -164,7 +164,7 @@ def plot_arrow(x, y, yaw, length=1.0, width=0.5, fc="r", ec="k"):  # pragma: no 
 def main():
     print(__file__ + " start!!")
 
-    sx = 10.0  # start x position [m]
+    sx = 0.0  # start x position [m]
     sy = 10.0  # start y position [m]
     syaw = np.deg2rad(10.0)  # start yaw angle [rad]
     sv = 1.0  # start speed [m/s]
