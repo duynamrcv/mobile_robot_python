@@ -16,7 +16,7 @@ class RRT:
             self.parent = None
     
     def __init__(self, start, goal, obs_list, rand_area, expand_dis=1.0,
-                path_resolution=0.5, goal_sample_rate=5, max_iter=500):
+                path_resolution=0.5, goal_sample_rate=20, max_iter=500):
         '''
         start       Start Position [x,y]
         goal        Goal Position [x,y]
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     print("Start")
 
     # List obstacles [x, y, radius]
-    obs_list = [(5, 5, 1), (3, 6, 1), (3, 8, 1), (3, 10, 1), (7, 5, 1), (9, 5, 1), (8, 10, 1)]
+    obs_list = [(5, 5, 1), (3, 6, 1), (3, 8, 1), (3, 10, 1), (7, 5, 1), (9, 5, 1), (8, 10, 1), (3.5, 5, 0.5)]
 
     sx = 0.0; sy = 0.0      # Start position
     gx = 6.0; gy = 10.0     # Goal position
@@ -185,5 +185,4 @@ if __name__ == "__main__":
             rrt.draw_graph()
             plt.plot([x for (x,y) in path], [y for (x, y) in path], '-r')
             plt.grid(True)
-            plt.pause(0.01)
             plt.show()

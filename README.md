@@ -9,8 +9,11 @@ pip install -r requirements.txt
     * A Star
     * Dijkstra
     * Probabilistic Road Map
+    * Rapidly-exploring random tree
     * Cubic Spline (path generator from point)
 2. [Path Tracking](path_tracking)
+    * Linear MPC
+    * LQR Steering / Speed Steering
     * Move to Pose
     * Rear Wheel Feedback
     * Stanley Control
@@ -25,6 +28,9 @@ pip install -r requirements.txt
 
 #### Probabilistic Road Map
 ![PRM](results/path_planning/prm.png)
+
+#### Rapidly-exploring Random Tree
+![RRT](results/path_planning/rrt.png)
 
 #### Cubic Spline path generation
 ![Cubic Spline](results/path_planning/spline.png)
