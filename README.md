@@ -22,7 +22,6 @@ pip install -r requirements.txt
 ### Path Planning
 #### A Star
 ![A Star](results/path_planning/a_star.png)
-
 #### Dijkstra
 ![Dijkstra](results/path_planning/dijkstra.png)
 #### Probabilistic Road Map
@@ -33,6 +32,10 @@ pip install -r requirements.txt
 ![RRT*](results/path_planning/rrt_star.png)
 #### Cubic Spline path generation
 ![Cubic Spline](results/path_planning/spline.png)
+#### Eta3 Spline path generation
+![Eta3 Spline](results/path_planning/eta3_path.png)
+Eta3 Spline with velocity constraints:
+![Eta3 Spline Trajectory](results/path_planning/eta3_path_smooth.png)
 
 ### Path Tracking
 #### The Car-like Mobile Robot model
