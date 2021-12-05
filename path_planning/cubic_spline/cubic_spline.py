@@ -156,6 +156,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     x = [0.0, -3.5, 2.0, 10.0, 3.0, 5.0, -2.0]
     y = [0.0, 2.0, -1.5, 5.0, 5.0, 10.0, 3.0]
+    # path = [[100.0, 5001
     ds = 0.1  # [m] distance of each intepolated points
 
     sp = Spline2D(x, y)

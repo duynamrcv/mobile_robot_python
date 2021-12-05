@@ -196,7 +196,6 @@ def test():
     path_segments.append(Eta3PathSegment(
         start_pose=start_pose, end_pose=end_pose, eta=eta, kappa=kappa))
 
-
     # construct the whole path
     path = Eta3Path(path_segments)
 

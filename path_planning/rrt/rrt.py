@@ -15,8 +15,8 @@ class RRT:
             self.path_y = []
             self.parent = None
     
-    def __init__(self, start, goal, obs_list, rand_area, expand_dis=1.0,
-                path_resolution=0.5, goal_sample_rate=20, max_iter=500):
+    def __init__(self, start, goal, obs_list, rand_area, expand_dis=5.0,
+                path_resolution=1.0, goal_sample_rate=10, max_iter=500):
         '''
         start       Start Position [x,y]
         goal        Goal Position [x,y]

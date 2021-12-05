@@ -265,6 +265,77 @@ def test1(max_vel=0.5):
     # if show_animation:
     #     plt.close("all")
 
+def test2(max_vel=1.0):
+    trajectory_segments = []
+
+    # segment 1: lane-change curve
+    start_pose = [0, 0, 0]
+    end_pose = [4, 4, 0]
+    # NOTE: The ordering on kappa is [kappa_A, kappad_A, kappa_B, kappad_B], with kappad_* being the curvature derivative
+    kappa = [0, 0, 0, 0]
+    eta = [1, 0, 0, 0, 0, 0]
+    trajectory_segments.append(Eta3PathSegment(
+        start_pose=start_pose, end_pose=end_pose, eta=eta, kappa=kappa))
+
+    # segment 2: line segment
+    start_pose = [4, 4, 0]
+    end_pose = [3, 10, 0]
+    kappa = [0, 0, 0, 0]
+    eta = [1, 0, 0, 0, 0, 0]
+    trajectory_segments.append(Eta3PathSegment(
+        start_pose=start_pose, end_pose=end_pose, eta=eta, kappa=kappa))
+
+    # segment 3: cubic spiral
+    start_pose = [3, 10, 0]
+    end_pose = [0, 0, 0]
+    kappa = [0, 0, 0, 0]
+    eta = [1, 0, 0, 0, 0, 0]
+    trajectory_segments.append(Eta3PathSegment(
+        start_pose=start_pose, end_pose=end_pose, eta=eta, kappa=kappa))
+
+    # construct the whole path
+    traj = Eta3Trajectory(trajectory_segments,
+                           max_vel=max_vel, max_accel=0.5, max_jerk=1)
+
+    # interpolate at several points along the path
+    times = np.linspace(0, traj.total_time, 1001)
+    state = np.empty((5, times.size))
+    for i, t in enumerate(times):
+        state[:, i] = traj.calc_traj_point(t)
+
+    # plot the path
+
+    if show_animation:
+        fig, ax = plt.subplots()
+        x, y = state[0, :], state[1, :]
+        points = np.array([x, y]).T.reshape(-1, 1, 2)
+        segs = np.concatenate([points[:-1], points[1:]], axis=1)
+        lc = LineCollection(segs, cmap=plt.get_cmap('inferno'))
+        ax.set_xlim(np.min(x) - 1, np.max(x) + 1)
+        ax.set_ylim(np.min(y) - 1, np.max(y) + 1)
+        lc.set_array(state[3, :])
+        lc.set_linewidth(3)
+        ax.add_collection(lc)
+        axcb = fig.colorbar(lc)
+        axcb.set_label('velocity(m/s)')
+        ax.set_title('Trajectory')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.pause(1.0)
+
+        fig1, ax1 = plt.subplots()
+        ax1.plot(times, state[3, :], 'b-')
+        ax1.set_xlabel('time(s)')
+        ax1.set_ylabel('velocity(m/s)', color='b')
+        ax1.tick_params('y', colors='b')
+        ax1.set_title('Control')
+        ax2 = ax1.twinx()
+        ax2.plot(times, state[4, :], 'r-')
+        ax2.set_ylabel('angular velocity(rad/s)', color='r')
+        ax2.tick_params('y', colors='r')
+        fig.tight_layout()
+        plt.show()
+
 def test3(max_vel=1.0):
     trajectory_segments = []
 
@@ -337,4 +408,4 @@ def test3(max_vel=1.0):
         plt.show()
 
 if __name__ == "__main__":
-    test3()
+    test2()
